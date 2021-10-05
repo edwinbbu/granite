@@ -34,6 +34,9 @@ module.exports = {
     }
   },
   parserOptions: {
+    babelOptions: {
+      presets: ["@babel/preset-react"]
+    },
     ecmaFeatures: {
       jsx: true
     },

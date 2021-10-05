@@ -6,6 +6,11 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.0",
+    "axios": "^0.22.0",
+    "babel-plugin-js-logger": "^1.0.17",
+    "js-logger": "^1.6.1",
+    "react-router-dom": "^5.3.0",
+    "tailwindcss": "1.9.6",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
@@ -13,6 +18,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.7",
+    "@babel/preset-react": "^7.14.5",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-cypress": "^2.12.1",
