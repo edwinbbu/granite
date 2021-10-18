@@ -2,7 +2,7 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-const TableRow = ({ data }) => {
+const TableRow = ({ data, showTask }) => {
   return (
     <tbody className="bg-white divide-y divide-gray-200">
       {data.map(rowData => (
@@ -13,6 +13,14 @@ const TableRow = ({ data }) => {
           >
             {rowData.title}
           </td>
+          <td className="px-6 py-4 text-sm font-medium leading-5 text-right cursor-pointer">
+            <a
+              className="text-bb-purple"
+              onClick={() => showTask(rowData.slug)}
+            >
+              Show
+            </a>
+          </td>
         </tr>
       ))}
     </tbody>
@@ -20,7 +28,8 @@ const TableRow = ({ data }) => {
 };
 
 TableRow.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  showTask: PropTypes.func
 };
 
 export default TableRow;
