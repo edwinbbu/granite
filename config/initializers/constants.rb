@@ -5,4 +5,5 @@ module Constants
   DB_REGEX_OPERATOR = is_sqlite_db ? "REGEXP" : "~*"
   MAX_TASK_TITLE_LENGTH = 125
   MAX_NAME_LENGTH = 255
+  MAX_EMAIL_LENGTH = 255
 end
