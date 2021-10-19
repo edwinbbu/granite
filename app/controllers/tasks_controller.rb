@@ -2,7 +2,9 @@
 
 class TasksController < ApplicationController
   before_action :load_task, only: %i[show update destroy]
+  # before_action :authenticate_user_using_x_auth_token
   def index
+    # byebug
     tasks = Task.all
     render status: :ok, json: { tasks: tasks }
   end
@@ -16,7 +18,7 @@ class TasksController < ApplicationController
     end
   end
   def show
-    render status: :ok, json: { task: @task, assigned_user: @task.assigned_user }
+    render
   end
 
   def update
