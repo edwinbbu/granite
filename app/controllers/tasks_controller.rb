@@ -2,7 +2,7 @@
 
 class TasksController < ApplicationController
   before_action :load_task, only: %i[show update destroy]
-  # before_action :authenticate_user_using_x_auth_token
+  before_action :authenticate_user_using_x_auth_token, except: [:new, :edit]
   def index
     # byebug
     tasks = Task.all
