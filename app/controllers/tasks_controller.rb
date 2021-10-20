@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   before_action :authenticate_user_using_x_auth_token
   def index
     # byebug
-    tasks = Task.all
+    tasks = Task.all.as_json(include: { assigned_user: { only: %i[name id] } })
     render status: :ok, json: { tasks: tasks }
   end
   def create
