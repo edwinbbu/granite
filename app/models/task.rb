@@ -6,6 +6,7 @@ class Task < ApplicationRecord
   before_validation :set_title, if: :title_not_present
   before_validation :print_set_title
   before_validation :assign_title, unless: :title_present
+  has_many :comments, dependent: :destroy
 
   # after_validation :set_title
   # before_save :change_title
