@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  after_create :log_task_details
+
   RESTRICTED_ATTRIBUTES = %i[title task_owner_id assigned_user_id]
   enum status: { unstarred: 0, starred: 1 }
   enum progress: { pending: 0, completed: 1 }
@@ -21,6 +23,10 @@ class Task < ApplicationRecord
   before_create :set_slug
 
   private
+
+    def log_task_details
+      TaskLoggerJob.perform_later(self)
+    end
 
     def set_slug
       title_slug = title.parameterize
