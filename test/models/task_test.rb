@@ -36,18 +36,19 @@ class TaskTest < ActiveSupport::TestCase
   end
   # def test_task_count_decreases_on_deleting
   #   assert_difference ["Task.count"], -1 do
-  #     delete(:task)
+  #     destroy(:task)
   #   end
   # end
-  # def test_task_should_not_be_valid_without_title
-  #   @task.title = ""
-  #   assert @task.invalid?
-  # end
-  # def test_task_slug_is_parameterized_title
-  #   title = @task.title
-  #   @task.save!
-  #   assert_equal title.parameterize, @task.slug
-  # end
+
+  def test_task_should_not_be_valid_without_title
+    @task.title = ""
+    assert @task.invalid?
+  end
+  def test_task_slug_is_parameterized_title
+    title = @task.title
+    @task.save!
+    assert_equal title.parameterize, @task.slug
+  end
   def test_incremental_slug_generation_for_tasks_with_duplicate_two_worded_titles
     first_task = Task.create!(title: "test task", assigned_user: @user, task_owner: @user)
     second_task = Task.create!(title: "test task", assigned_user: @user, task_owner: @user)
