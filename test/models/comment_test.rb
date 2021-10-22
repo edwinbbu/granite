@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class CommentTest < ActiveSupport::TestCase
@@ -8,21 +10,22 @@ class CommentTest < ActiveSupport::TestCase
     @comment = build(:comment)
   end
   def test_comment_should_be_invalid_without_content
-    @comment.content = ''
+    @comment.content = ""
     assert @comment.invalid?
   end
 
   def test_comment_content_should_not_exceed_maximum_length
-    @comment.content = 'a' * 550
+    @comment.content = "a" * 550
     assert @comment.invalid?
   end
   def test_valid_comment_should_be_saved
-    assert_difference 'Comment.count' do
+    assert_difference "Comment.count" do
       @comment.save
     end
+  end
   def test_comment_should_not_be_valid_without_user
-      @comment.user = nil
-      assert @comment.invalid?
+    @comment.user = nil
+    assert @comment.invalid?
   end
   def test_comment_should_not_be_valid_without_task
     @comment.task = nil
