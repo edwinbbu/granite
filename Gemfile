@@ -62,5 +62,5 @@ gem "react-rails"
 gem "sidekiq"
 gem "sidekiq-cron"
 gem "simplecov", require: false, group: :test
-gem "sqlite3", "~> 1.4", group: [:development, :test]
+# gem "sqlite3", "~> 1.4", group: [:development, :test]
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
