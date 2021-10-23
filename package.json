@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
+    "@babel/preset-react": "^7.14.5",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
     "axios": "^0.22.0",
@@ -28,7 +29,6 @@
   "version": "0.1.0",
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.7",
-    "@babel/preset-react": "^7.14.5",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-cypress": "^2.12.1",
