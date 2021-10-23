@@ -56,9 +56,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "letter_opener", group: :development
+gem "pg", group: [:production]
 gem "pundit"
 gem "react-rails"
 gem "sidekiq"
 gem "sidekiq-cron"
 gem "simplecov", require: false, group: :test
+gem "sqlite3", "~> 1.4", group: [:development, :test]
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
