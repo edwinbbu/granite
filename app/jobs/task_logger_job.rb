@@ -1,23 +1,13 @@
 # frozen_string_literal: true
 
-require "test_helper"
-require "sidekiq/testing"
+class TaskLoggerJob < ApplicationJob
+  sidekiq_options queue: :default, retry: 3
+  queue_as :default
 
-class TaskLoggerJobTest < ActiveJob::TestCase
-  def setup
-    @task = create(:task)
-  end
+  def perform(task)
+    msg = "A task was created with the following title: #{task.title}"
+    log = Log.create! task_id: task.id, message: msg
 
-  test "logger runs once after creating a new task" do
-    assert_enqueued_with(job: TaskLoggerJob, args: [@task])
-    perform_enqueued_jobs
-    assert_performed_jobs 1
-  end
-
-  test "log count increments on running task logger" do
-    Sidekiq::Testing.inline!
-    assert_difference "Log.count", 1 do
-      TaskLoggerJob.new.perform(@task)
-    end
+    puts log.message
   end
 end
